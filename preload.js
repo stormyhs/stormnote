@@ -6,6 +6,14 @@ window.addEventListener('DOMContentLoaded', () => {
     const element = document.getElementById(selector)
     if (element) element.innerText = text
   }
+  
+  // creates if doesnt exist - doesnt error if exists.
+  fs.mkdir(`./notes/`, { recursive: true }, (error) => {
+    if(error){
+      console.log(error);
+    }
+  });
+
   load_notes_list();
 })
 
