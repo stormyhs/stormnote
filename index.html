@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'"> -->
+    <link href="./output.css" rel="stylesheet">
+    <title>Notes (StormNet Botnet)</title>
+  </head>
+  <body class="selection:bg-slate-500 bg-slate-800">
+    <div id="title" class="flex justify-center mt-3">
+      <h1 contenteditable="false" id="note-title" class="outline-none text-neutral-300 text-4xl" style="cursor: default;">Welcome to StormNote</h1>
+    </div>
+    <br><br>
+    
+    <!-- <script src="./renderer.js"></script> -->
+    <script src="./funcs.js"></script>
+    <div class="flex">
+      <div id="notes-list" class="w-60 border-2 border-solid border-black text-lg" style="cursor: default;">
+      </div>
+      <div id="note-body" class="outline-none w-full max-w-none border-2 border-solid border-black border-l-0" style="cursor: default;">
+      </div>
+    </div>
+  </body>
+</html>
