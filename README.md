@@ -1,5 +1,5 @@
 # StormNote
-A simple note-taking built on electron, using node js (obviously) and tailwind.
+A simple note-taking app built on electron, using node js (obviously) and tailwind.
 
 
 ## TODO
