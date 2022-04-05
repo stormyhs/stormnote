@@ -11,10 +11,15 @@
       ::-webkit-scrollbar {
           display: none;
       }
+      html {
+        font-family: Roboto;
+      }
     </style>
   </head>
   <body class="selection:bg-slate-500 bg-slate-800">
     <div id="title" class="flex justify-center mt-3">
+      <button id="enablemd" type="button" onclick="switch_view()" class="text-2xl text-neutral-400">[MD] </button>
+      <button id="disablemd" hidden type="button" onclick="switch_view()" class="text-2xl text-white">[MD] </button>
       <h1 contenteditable="false" id="note-title" class="outline-none text-neutral-300 text-4xl" style="cursor: default;">Welcome to StormNote</h1>
     </div>
     <br><br>
@@ -24,7 +29,7 @@
     <div class="flex">
       <div id="notes-list" class="w-60 h-screen border-2 border-solid border-black text-lg" style="cursor: default;">
       </div>
-      <div id="note-body" class="outline-none w-full max-w-none border-2 border-solid border-black border-l-0" style="cursor: default;">
+      <div id="note-body" class="outline-none w-screen border-2 border-solid border-black border-l-0" style="cursor: default;">
       </div>
     </div>
   </body>

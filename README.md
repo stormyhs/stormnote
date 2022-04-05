@@ -3,7 +3,8 @@ A simple note-taking app built on electron, using node js (obviously) and tailwi
 
 
 ## TODO
-- [ ] Markdown parsing
+- [ ] Finish markdown parsing
 - [ ] Save notes in documents folder
-- [ ] Clean up code
+- [ ] Fix note text overflow
 - [ ] Nicer UI
+- [ ] Clean up code

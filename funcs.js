@@ -4,11 +4,33 @@
 */
 
 const load_notes_list = require('./preload.js');
+const parse_content = require('./parser.js');
+
 var fs = require('fs');
 var current_note = null;
+var md_mode = false;
+
+function switch_view(){
+    if(md_mode){
+        md_mode = false;
+        document.getElementById("enablemd").removeAttribute("hidden");
+        document.getElementById("disablemd").setAttribute("hidden", "");
+    } else {
+        md_mode = true;
+        document.getElementById("disablemd").removeAttribute("hidden");
+        document.getElementById("enablemd").setAttribute("hidden", "");
+    }
+
+    console.log(md_mode);
+
+    if(current_note != null){
+        display_note(current_note);
+    }
+}
 
 function save_note(){
     if(current_note == null){return}
+    if(md_mode){return}
     note_body = document.getElementById("note-body");
     note_text = note_body.getElementsByTagName("textarea")[0].value;
     note_title = document.getElementById("note-title");
@@ -27,22 +49,32 @@ function display_note(note){
     document.getElementById("buttons").removeAttribute("hidden");
     document.getElementById("note-title").setAttribute("contenteditable", "true");
 
-    save_note();
-
     note_body = document.getElementById("note-body");
     note_title = document.getElementById("note-title");
-    
+
     note_json = JSON.parse(fs.readFileSync(`./notes/${note}`, 'utf-8'));
     note_content = fs.readFileSync(`./notes/${note.slice(0, -5)}`, 'utf-8');
 
     note_title.innerText = `${note_json.title}`
     // this tag has changed `4` times.
-    note_body.innerHTML = `<textarea style="display:inline-block; box-sizing: border-box;" class="ml-1 outline-none w-full h-full text-2xl text-neutral-300 bg-slate-800">${note_content}</textarea>`;
+
+    if(md_mode){
+        note_body_html = `<pre style="display:inline-block; box-sizing: border-box; font-family: Roboto" class="ml-1 outline-none w-full h-full text-2xl text-neutral-300 bg-slate-800">`;
+        note_body_html += parse_content(note_content);
+        note_body_html += `</pre>`;
+    } else{
+        note_body_html = `<textarea style="display:inline-block; box-sizing: border-box;" class="ml-1 outline-none w-full h-full text-2xl text-neutral-300 bg-slate-800">`;
+        note_body_html += `${note_content}`;
+        note_body_html += `</textarea>`;
+    }
+    note_body.innerHTML = note_body_html
     
     current_note = note;
     
     var load_notes_list = require("./preload.js");
     load_notes_list(current_note);
+
+    parse_content(note_content);
 }
 
 function create_new_note(){
