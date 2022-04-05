@@ -23,8 +23,7 @@ function load_notes_list(current_note=null){
   
   var directoryPath = path.join(__dirname, './notes/');
   var files = fs.readdirSync(directoryPath);
-  files.sort(function(a, b) {return fs.statSync(directoryPath + a).mtime.getTime() - fs.statSync(directoryPath + b).mtime.getTime();});
-  files.reverse();
+  files.sort();
 
   let note_data = null;
   for (var i = 0; i < files.length; i++) {
@@ -38,6 +37,7 @@ function load_notes_list(current_note=null){
       }
     }
   }
+
 }
 
 module.exports = load_notes_list;
