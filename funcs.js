@@ -56,7 +56,6 @@ function display_note(note){
     note_content = fs.readFileSync(`./notes/${note.slice(0, -5)}`, 'utf-8');
 
     note_title.innerText = `${note_json.title}`
-    // this tag has changed `4` times.
 
     if(md_mode){
         note_body_html = `<pre style="display:inline-block; box-sizing: border-box; font-family: Roboto" class="ml-1 outline-none w-full h-full text-2xl text-neutral-300 bg-slate-800">`;

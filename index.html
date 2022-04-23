@@ -27,7 +27,14 @@
     <!-- <script src="./renderer.js"></script> -->
     <script src="./funcs.js"></script>
     <div class="flex">
-      <div id="notes-list" class="w-60 h-screen border-2 border-solid border-black text-lg" style="cursor: default;">
+      <div id="left-sidebar" class="w-60 h-screen border-2 border-solid border-black text-lg" style="cursor: default;">
+        <div id="buttons" class="flex">
+          <h3 onclick="save_note()" id="save-note-button" class="text-neutral-500 text-xl mr-4" style="cursor: pointer;">[SAVE]</h3>
+          <h3 onclick="create_new_note()" id="new-note-button" class="text-neutral-500 text-xl mr-4" style="cursor: pointer;">[NEW]</h3>
+          <h3 onclick="delete_note()" id="delete-note-button" class="text-red-300 text-xl mr-4" style="cursor: pointer;">[DEL]</h3>
+        </div>
+        <div id="notes-list">
+        </div>
       </div>
       <div id="note-body" class="outline-none w-screen border-2 border-solid border-black border-l-0" style="cursor: default;">
       </div>
