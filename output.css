@@ -508,6 +508,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 100vw;
 }
 
+.resize-x {
+  resize: horizontal;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -515,6 +519,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .break-normal {
   overflow-wrap: normal;
   word-break: normal;
+}
+
+.break-all {
+  word-break: break-all;
 }
 
 .border-2 {
@@ -567,6 +575,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
+}
+
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
 }
 
 .text-neutral-300 {
